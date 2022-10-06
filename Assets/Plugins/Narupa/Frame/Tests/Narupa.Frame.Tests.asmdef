@@ -2,7 +2,8 @@
     "name": "Narupa.Frame.Tests",
     "references": [
         "Narupa.Frame",
-        "Narupa.Core"
+        "Narupa.Core",
+        "UnityEngine.UI"
     ],
     "optionalUnityReferences": [
         "TestAssemblies"

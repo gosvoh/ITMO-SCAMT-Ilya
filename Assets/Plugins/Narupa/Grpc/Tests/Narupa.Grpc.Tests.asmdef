@@ -4,7 +4,8 @@
         "Narupa.Grpc",
         "Narupa.Testing",
         "Narupa.Frame",
-        "Narupa.Core"
+        "Narupa.Core",
+        "UnityEngine.UI"
     ],
     "optionalUnityReferences": [
         "TestAssemblies"

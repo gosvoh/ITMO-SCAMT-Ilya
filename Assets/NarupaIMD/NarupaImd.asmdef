@@ -7,7 +7,9 @@
         "Unity.TextMeshPro",
         "Narupa.Grpc",
         "Narupa.Frame",
-        "Narupa.Core"
+        "Narupa.Core",
+        "UnityEditor.UI",
+        "UnityEngine.UI"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

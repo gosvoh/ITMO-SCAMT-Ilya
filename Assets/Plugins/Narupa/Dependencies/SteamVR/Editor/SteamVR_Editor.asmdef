@@ -1,7 +1,11 @@
 {
     "name": "SteamVR_Editor",
     "references": [
-        "SteamVR"
+        "SteamVR",
+        "UnityEditor.UI",
+        "UnityEngine.UI",
+        "UnityEditor.TestRunner",
+        "UnityEngine.TestRunner"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [

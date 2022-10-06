@@ -1,7 +1,9 @@
 {
     "name": "Narupa.Frame",
     "references": [
-        "Narupa.Core"
+        "Narupa.Core",
+        "UnityEditor.UI",
+        "UnityEngine.UI"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [],

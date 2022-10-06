@@ -4,7 +4,9 @@
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner",
         "Narupa.Core",
-        "NarupaImd"
+        "NarupaImd",
+        "UnityEditor.UI",
+        "UnityEngine.UI"
     ],
     "includePlatforms": [
         "Editor"
