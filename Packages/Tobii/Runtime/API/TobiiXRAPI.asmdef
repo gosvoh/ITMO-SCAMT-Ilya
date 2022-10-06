@@ -1,0 +1,13 @@
+{
+    "name": "TobiiXRSDK",
+    "references": [
+        "TobiiXRCore",
+        "TobiiXRG2OM",
+        "UnityEditor.UI",
+        "UnityEngine.UI"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false
+}

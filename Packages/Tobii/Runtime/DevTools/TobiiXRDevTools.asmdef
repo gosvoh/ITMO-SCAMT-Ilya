@@ -1,0 +1,14 @@
+{
+    "name": "TobiiXRDevTools",
+    "references": [
+        "TobiiXRCore",
+        "TobiiXRG2OM",
+        "TobiiXRSDK",
+        "UnityEditor.UI",
+        "UnityEngine.UI"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false
+}
