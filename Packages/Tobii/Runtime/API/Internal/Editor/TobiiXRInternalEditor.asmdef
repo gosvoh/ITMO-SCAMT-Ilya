@@ -1,0 +1,18 @@
+{
+    "name": "TobiiXRInternalEditor",
+    "references": [
+        "TobiiXRCore",
+        "TobiiXRSDK",
+        "TobiiXRDevTools",
+        "UnityEditor.UI",
+        "UnityEngine.UI",
+        "UnityEditor.TestRunner",
+        "UnityEngine.TestRunner"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false
+}

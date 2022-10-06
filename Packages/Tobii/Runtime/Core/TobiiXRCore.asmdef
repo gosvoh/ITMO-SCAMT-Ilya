@@ -1,0 +1,25 @@
+{
+    "name": "TobiiXRCore",
+    "references": [
+        "Unity.XR.OpenVR",
+        "Unity.XR.Management",
+        "Unity.InputSystem",
+        "UnityEditor.UI",
+        "UnityEngine.UI"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.valvesoftware.unity.openvr",
+            "expression": "",
+            "define": "OPENVR_ENABLED"
+        }
+    ],
+    "noEngineReferences": false
+}
