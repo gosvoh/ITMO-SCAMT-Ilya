@@ -940,7 +940,7 @@ MonoBehaviour:
     actionPath: /actions/Simulation/in/Interact
     needsReinit: 0
   controllerManager: {fileID: 2074532958}
---- !u!43 &251122338
+--- !u!43 &247102826
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3569,7 +3569,7 @@ GameObject:
   - component: {fileID: 771985957}
   - component: {fileID: 771985956}
   - component: {fileID: 771985955}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Plane (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3839,7 +3839,7 @@ GameObject:
   - component: {fileID: 915619735}
   - component: {fileID: 915619734}
   - component: {fileID: 915619733}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Plane (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3945,40 +3945,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 108607806}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &996793213
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Sprites/Default
-  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _AlphaTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - PixelSnap: 0
-    - _EnableExternalAlpha: 0
-    m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1042607093
 GameObject:
   m_ObjectHideFlags: 0
@@ -4642,7 +4608,7 @@ GameObject:
   - component: {fileID: 1382058098}
   - component: {fileID: 1382058097}
   - component: {fileID: 1382058096}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Plane (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6019,6 +5985,40 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1625022104}
   m_CullTransparentMesh: 0
+--- !u!21 &1666299954
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Sprites/Default
+  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlphaTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - PixelSnap: 0
+    - _EnableExternalAlpha: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1674452946
 GameObject:
   m_ObjectHideFlags: 0
@@ -6121,7 +6121,7 @@ GameObject:
   - component: {fileID: 1773754488}
   - component: {fileID: 1773754487}
   - component: {fileID: 1773754486}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6228,7 +6228,7 @@ GameObject:
   - component: {fileID: 1778199248}
   - component: {fileID: 1778199247}
   - component: {fileID: 1778199246}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Plane (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6845,7 +6845,7 @@ GameObject:
   - component: {fileID: 1976955152}
   - component: {fileID: 1976955151}
   - component: {fileID: 1976955150}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Plane (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7800,8 +7800,6 @@ MonoBehaviour:
     StandaloneEyeTrackingProviders:
     - TypeName: HTCProvider
     - TypeName: Tobii.XR.TobiiProvider
-    - TypeName: Tobii.XR.NoseDirectionProvider
-    - TypeName: Tobii.XR.MouseProvider
     AndroidEyeTrackingProviders:
     - TypeName: Tobii.XR.TobiiProvider
     - TypeName: Tobii.XR.PicoXRProvider
@@ -8987,12 +8985,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 996793213}
+      objectReference: {fileID: 1666299954}
     - target: {fileID: 3529211918889242964, guid: 44e6cce32ce12e0468da54bc4179b425,
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 251122338}
+      objectReference: {fileID: 247102826}
     - target: {fileID: 3529211918896755064, guid: 44e6cce32ce12e0468da54bc4179b425,
         type: 3}
       propertyPath: shader
