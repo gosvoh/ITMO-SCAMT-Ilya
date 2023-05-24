@@ -1,4 +1,6 @@
-# Narupa ITMO SCAMT инструкция
+# Narupa ITMO SCAMT
+
+![ITMO-SCAMT](ITMO-SCAMT.gif)
 
 ## Установка и запуск
 - Установить [SteamVR](https://store.steampowered.com/app/250820/SteamVR)
@@ -11,6 +13,7 @@
 - Логи клиента и сообщения об ошибках сервера можно найти в директории logs
 
 Содержимое директории после распаковки:
+
 ![Сожержимое директории после распаковки](Directory.png)
 
 ## Калибровка глаз
@@ -36,6 +39,7 @@
 - Client logs and server error messages can be found in the logs directory
 
 Contents of the directory after unpacking:
+
 ![Contents of the directory after unpacking](Directory.png)
 
 ## Eye Calibration
