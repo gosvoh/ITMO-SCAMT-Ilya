@@ -7,6 +7,7 @@ using NarupaImd.Interaction;
 using UnityEngine;
 using UnityEngine.Events;
 using ViveSR.anipal.Eye;
+using Debug = UnityEngine.Debug;
 
 namespace ITMO.Scripts
 {
@@ -21,8 +22,10 @@ namespace ITMO.Scripts
         public static Logger Logger;
         public static int EyeGazeChangedCounter;
         public static int FrameBreakpoint = 10;
-        public static int LastID = -10;
+        public static Info LastInfo;
         public static int ParticlesCount;
+        public static bool EnableHighlight;
+        public static bool EnableAtomIds;
 
         private static readonly Dictionary<int, Info> Spheres = new Dictionary<int, Info>();
 
@@ -35,7 +38,9 @@ namespace ITMO.Scripts
             SetWalls();
             Server.ConnectedEvent.AddListener(ConnectionHandler);
             Server.DisconnectedEvent.AddListener(EventHandler);
-            PlayerPrefs.GetInt("EyeInteraction.FrameBreakpoint", 10);
+            FrameBreakpoint = PlayerPrefs.GetInt("EyeInteraction.FrameBreakpoint", 10);
+            EnableHighlight = PlayerPrefs.GetString("EyeInteraction.EnableHighlight", "False") != "False";
+            EnableAtomIds = PlayerPrefs.GetString("EyeInteraction.EnableAtomIds", "False") != "False";
         }
 
         private void ConnectionHandler()
@@ -77,8 +82,22 @@ namespace ITMO.Scripts
                 float.MaxValue, 1 << atomPrefab.layer);
             if (!eyeFocus) return;
             var info = focusInfo.transform.GetComponent<Info>();
-            if (info is null || info.Index == LastID) return;
-            LastID = info.Index;
+            if (info is null || (LastInfo && info.Index == LastInfo.Index)) return;
+            if (EnableHighlight)
+            {
+                var col = info.material.color;
+                col.a = 1;
+                if (info.IsAtom == Info.Type.ATOM) info.material.color = col;
+
+                if (LastInfo)
+                {
+                    col = LastInfo.material.color;
+                    col.a = 0;
+                    if (LastInfo.IsAtom == Info.Type.ATOM) LastInfo.material.color = col;
+                }
+            }
+
+            LastInfo = info;
             EyeGazeChangedCounter++;
             if (Logger == null) return;
             Logger.AddInfo(
@@ -130,7 +149,7 @@ namespace ITMO.Scripts
                 var atom = Instantiate(atomPrefab, particlePositions[i], Quaternion.identity);
                 atom.transform.SetParent(_parent.transform, false);
                 var info = atom.GetComponent<Info>();
-                info.Index = particles[i].Index;
+                info.SetIndex(particles[i].Index);
                 info.Obj = atom;
                 Spheres.Add(info.Index, info);
             }
@@ -142,7 +161,7 @@ namespace ITMO.Scripts
             {
                 var wall = wallsParent.transform.GetChild(i).gameObject;
                 var wallInfo = wall.GetComponent<Info>();
-                wallInfo.Index = -(i + 1);
+                wallInfo.SetIndex(-(i + 1));
                 wallInfo.Obj = wall;
             }
         }

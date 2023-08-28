@@ -1,4 +1,5 @@
 ﻿using Tobii.XR;
+using Tobii.XR.GazeModifier;
 using UnityEngine;
 using ViveSR.anipal.Eye;
 
@@ -8,8 +9,17 @@ namespace ITMO.Scripts
     {
         public static bool TobiiEnabled;
         private bool _tobiiEnabled;
+        public static int TobiiQuality;
 
-        private void Awake() => _tobiiEnabled = TobiiEnabled;
+    private GazeModifierSettings gazeModifierSettings;
+
+        private void Awake()
+        {
+            _tobiiEnabled = TobiiEnabled;
+            TobiiQuality = PlayerPrefs.GetInt("EyeTrackerSwitcher.TobiiQuality", 85);
+            gazeModifierSettings = GetComponent<GazeModifierSettings>();
+            if (gazeModifierSettings != null) gazeModifierSettings.SelectedPercentileIndex = TobiiQuality;
+        }
 
         // private void FixedUpdate()
         // {

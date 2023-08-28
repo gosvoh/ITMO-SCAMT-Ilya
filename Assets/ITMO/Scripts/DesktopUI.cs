@@ -3,7 +3,9 @@ using System.Linq;
 using Castle.Core.Internal;
 using Narupa.Visualisation;
 using NarupaImd.UI;
+using Tobii.XR.GazeModifier;
 using UnityEngine;
+using ViveSR.anipal.Eye;
 
 namespace ITMO.Scripts
 {
@@ -14,6 +16,7 @@ namespace ITMO.Scripts
         [SerializeField] private GameObject scene;
         [SerializeField] private BoxVisualiser box;
         [SerializeField] private GameObject walls;
+        [SerializeField] private GazeModifierSettings gazeModifierSettings;
 
         private const string ChooseMsg = "Choose level";
         private const string EmptyMsg = "Empty list of levels";
@@ -90,6 +93,8 @@ namespace ITMO.Scripts
 
                     GUILayout.EndScrollView();
                 }
+
+                if (GUILayout.Button("Launch eye calibration")) SRanipal_Eye_API.LaunchEyeCalibration(IntPtr.Zero);
             }
             else
             {
@@ -130,19 +135,6 @@ namespace ITMO.Scripts
                 if (GUILayout.Button("Disconnect")) DisconnectAndReturn();
             }
 
-            var enableBox = GUILayout.Toggle(box.gameObject.activeSelf, "Enable box");
-            if (enableBox != box.gameObject.activeSelf)
-            {
-                box.gameObject.SetActive(enableBox);
-                PlayerPrefs.SetString("EnableBox", enableBox.ToString());
-            }
-
-            var trackWalls = GUILayout.Toggle(walls.activeSelf, "Track walls");
-            if (trackWalls != walls.activeSelf)
-            {
-                walls.SetActive(trackWalls);
-                PlayerPrefs.SetString("TrackWalls", trackWalls.ToString());
-            }
 
             var tobiiState = GUILayout.Toggle(EyeTrackerSwitcher.TobiiEnabled, "Enable Tobii");
             if (tobiiState != EyeTrackerSwitcher.TobiiEnabled)
@@ -153,15 +145,41 @@ namespace ITMO.Scripts
                 else EyeTrackerSwitcher.DisableTobii();
             }
 
+            if (EyeTrackerSwitcher.TobiiEnabled)
+            {
+                GUILayout.Box($"Tobii quality: {EyeTrackerSwitcher.TobiiQuality}");
+                var quality = (int)GUILayout.HorizontalSlider(EyeTrackerSwitcher.TobiiQuality, 0, 100);
+                if (quality != EyeTrackerSwitcher.TobiiQuality)
+                {
+                    EyeTrackerSwitcher.TobiiQuality = quality;
+                    gazeModifierSettings.SelectedPercentileIndex = EyeTrackerSwitcher.TobiiQuality;
+                    PlayerPrefs.SetInt("EyeTrackerSwitcher.TobiiQuality", EyeTrackerSwitcher.TobiiQuality);
+                }
+            }
+
             if (!EyeTrackerSwitcher.TobiiEnabled)
             {
-                GUILayout.Box($"Register gaze every {EyeInteraction.FrameBreakpoint * Time.fixedDeltaTime:0.00}s");
-                var frameBreakpoint = (int) GUILayout.HorizontalSlider(EyeInteraction.FrameBreakpoint, 1, 50);
+                GUILayout.Box($"Update positions every {EyeInteraction.FrameBreakpoint * Time.fixedDeltaTime:0.00}s");
+                var frameBreakpoint = (int)GUILayout.HorizontalSlider(EyeInteraction.FrameBreakpoint, 1, 50);
                 if (frameBreakpoint != EyeInteraction.FrameBreakpoint)
                 {
                     EyeInteraction.FrameBreakpoint = frameBreakpoint;
                     PlayerPrefs.SetInt("FrameBreakpoint", frameBreakpoint);
                 }
+            }
+
+            var enabledHighlight = GUILayout.Toggle(EyeInteraction.EnableHighlight, "Enable atom highlight");
+            if (enabledHighlight != EyeInteraction.EnableHighlight)
+            {
+                EyeInteraction.EnableHighlight = enabledHighlight;
+                PlayerPrefs.SetString("EyeInteraction.EnableHighlight", enabledHighlight.ToString());
+            }
+
+            var enableAtomIds = GUILayout.Toggle(EyeInteraction.EnableAtomIds, "Enable atom ids");
+            if (enableAtomIds != EyeInteraction.EnableAtomIds)
+            {
+                EyeInteraction.EnableAtomIds = enableAtomIds;
+                PlayerPrefs.SetString("EyeInteraction.EnableAtomIds", enableAtomIds.ToString());
             }
 
             GUILayout.EndArea();
