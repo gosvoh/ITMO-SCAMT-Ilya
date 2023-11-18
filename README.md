@@ -1,8 +1,8 @@
 [English](#narupa-itmo-scamt-manual)
 
-# Narupa ITMO SCAMT инструкция
+![ITMO-SCAMT](Docs/ITMO-SCAMT.gif)
 
-![ITMO-SCAMT](ITMO-SCAMT.gif)
+# Narupa ITMO SCAMT инструкция
 
 ## Установка и запуск
 - Установить [SteamVR](https://store.steampowered.com/app/250820/SteamVR)
@@ -16,7 +16,7 @@
 
 Содержимое директории после распаковки:
 
-![Сожержимое директории после распаковки](Directory.png)
+![Сожержимое директории после распаковки](Docs/Directory.png)
 
 ## Калибровка глаз
 - Запустите SR_Runtime (он так же автоматически запускается при запуске ITMO SCAMT.exe)
@@ -38,7 +38,7 @@
 
 Contents of the directory after unpacking:
 
-![Contents of the directory after unpacking](Directory.png)
+![Contents of the directory after unpacking](Docs/Directory.png)
 
 ## Eye Calibration
 - Run SR_Runtime (it also runs automatically when you run ITMO SCAMT.exe)
